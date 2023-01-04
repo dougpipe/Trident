@@ -15,8 +15,13 @@ step "deploy-trident-website" {
                 
                 Write-Host "Remove $machineName from load balancer."
                 
-                Write-Host "Forcing an Error for Guided failure demo"
-                Exit 1  #to get step to fail.
+                $number = Get-Random -Maximum 10
+                Write-Host "Random Number is: $number"
+                if ($number -gt 8)
+                {
+                  Write-Host "Forcing an Error for Guided failure demo"
+                  Exit 1  #to get step to fail.
+                }
             EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
