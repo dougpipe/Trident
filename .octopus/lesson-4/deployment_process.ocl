@@ -17,7 +17,7 @@ step "deploy-trident-website" {
                 
                 $number = Get-Random -Maximum 10
                 Write-Host "Random Number is: $number"
-                if ($number -gt 5)
+                if ($number -gt 7)
                 {
                   Write-Host "Forcing an Error for Guided failure demo"
                   Exit 1  #to get step to fail.
